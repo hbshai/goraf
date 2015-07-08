@@ -209,7 +209,7 @@ func main() {
 	}
 
 	// Better trick than checking for "no one"
-	lastAccess = lastAccess - protectionTime
+	lastAccess = lastAccess.Add(-protectionTime)
 	log.Printf("Session timeout is %v\n", protectionTime)
 
 	// Host files from public dir, but mount them on root (/) path instead
