@@ -48,6 +48,10 @@ func (fn appHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func accessProtected(r *http.Request) bool {
+	if lastSessionAddress == "no one" {
+		return false
+	}
+
 	// We are the active user
 	if r.RemoteAddr == lastSessionAddress {
 		return false
@@ -166,11 +170,14 @@ func main() {
 
 	if _, err := os.Stat(*backupDirPath); os.IsNotExist(err) {
 		log.Println("Creating backup directory in " + *backupDirPath)
-		os.Mkdir(*backupDirPath, 0744)
+		if err := os.Mkdir(*backupDirPath, 0744); err != nil {
+			log.Printf("Couldn't create backup dir. Error: %v", err)
+		}
 	}
 	log.Println("Backup directory is " + *backupDirPath)
 
-	protectionTime, err := time.ParseDuration(*sessionTimeout)
+	var err error
+	protectionTime, err = time.ParseDuration(*sessionTimeout)
 	if err != nil {
 		log.Printf("Failed to parse session time, falling back...%v\n", err)
 		protectionTime = 5 * time.Minute
