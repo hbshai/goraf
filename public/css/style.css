@@ -5,7 +5,7 @@ body {
     padding: 0;
 
     margin: 0 auto;
-    margin-bottom: 30px;
+    margin-bottom: calc(30px + 0.25em);
 }
 
 .bg {
@@ -67,11 +67,12 @@ header > span {
     margin-right: 0;
 }
 
+
 button,
 input[type="submit"] {
     background: #FFF;
     padding: 0.5em;
-    margin-right: 0.5em;
+    margin-right: 0.25em;
     
     border-radius: 3px;
     border: 1px solid black;
@@ -89,7 +90,13 @@ input[type="submit"]:hover  {
 .program {
     display: flex;
     flex-direction: column;
-    padding-top: 0.25em;
+    margin-top: 0.25em;
+}
+.program:nth-child(2){
+    margin-top: 0.5em;
+}
+.program:last-child{
+    margin-bottom: 0.5em;
 }
 
 .program-header {
