@@ -1,0 +1,296 @@
+{
+   "7hpblandat": {
+      "name": "7HP blandat",
+      "rss": "http://www.radioaf.se/program/blandat/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/03/Logga_nya_hemsidan.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "7HP blandat är programmet som vidgar dina vyer i ämnet bättre vetande. Dessutom kanske man lär sig något på vägen.",
+      "category": "samhälle"
+   },
+   "Studentaftonpodden": {
+      "name": "Studentaftonpodden",
+      "rss": "http://www.radioaf.se/program/studentaftonpodden/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/10/Officiell_Poddlogo_final_black.png\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Studentafton är Skandinaviens äldsta och mest kända samtalsforum som varje år gästas av välkända politiker, författare, musiker och tänkare. I Studentaftonpodden får du två gånger per månad ta del av samtalen från Lund.",
+      "category": "samhälle"
+   },
+   "bastforeigar": {
+      "name": "Bäst Före Igår",
+      "rss": "http://www.radioaf.se/program/bastforeigar/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/Programbild.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "",
+      "category": "nöje \u0026 kultur"
+   },
+   "blekingska": {
+      "name": "Radio Blekingska",
+      "rss": "http://www.radioaf.se/program/blekingska/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/04/radio-blekingska.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Vad händer egentligen på den lilla nationen med det stora hjärtat? Radio Blekingska har svaren. Varje fredag pratar Annie med olika gäster, såväl artister som studenter, om veckans händelser, om musik och om livet och allt vad det innebär. Så välkommen till programmet där artister laddar upp och studenter spekulerar; välkommen till Blekingska!",
+      "category": "studentliv"
+   },
+   "correcto": {
+      "name": "Correcto",
+      "rss": "http://www.radioaf.se/program/correcto/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/correctobarcelona.png\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Programmet för dig som är intresserad av att veta sanningen. Vi reder ut vetenskapliga rön och ger dig vår åsikt. Du får bestämma om du tror på oss eller inte!",
+      "category": "samhälle"
+   },
+   "dagenssoppa": {
+      "name": "Dagens Soppa",
+      "rss": "http://www.radioaf.se/program/dagenssoppa/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/03/chalkboard1.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Dagens Soppa är Radio AFs humorarkiv. Varje dag mellan 12 och 13 bjuds du på på en stadig portion sketcher, busringningar, vitskavalkader och allt annat roligt som som sänts på Radio AF under åren. Lyssna och återupptäck guldkorn från klassiska Radio AF-program som LavePANG, Inte Bara Allvar, Radiorepubliken, I Vaginan, Mot Bättre Vetande och många fler!",
+      "category": "humor"
+   },
+   "etikpubspodden": {
+      "name": "Etikpubspodden",
+      "rss": "http://www.radioaf.se/program/etikpubspodden/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/03/lse-logga2.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "I en värld av alltmer komplex teknik uppstår ofta svåra etiska och moraliska dilemman. Vi ger oss därför djärvt in i det spännande gränslandet mellan etik och teknik i jakten på klarhet. På denna resa har vi med oss har vi en panel av upplysta människor från humaniora, näringsliv och naturvetenskap som ger ett vidsynt perspektiv på samtidens problem.",
+      "category": "studentliv"
+   },
+   "filmtopp": {
+      "name": "Filmtopp",
+      "rss": "http://www.radioaf.se/program/filmtopp/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/Namnl%C3%B6s.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Filmtopp är ett program som riktar sig till er cineaster där ute. Vår idé är att leverera filmnyheter, recensioner, rekommendationer och sköna listor.",
+      "category": "nöje \u0026 kultur"
+   },
+   "flugan": {
+      "name": "Flugan",
+      "rss": "http://www.radioaf.se/program/flugan/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/02/Flugan_2.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Flugan är programmet som diskuterar de saker som redaktionen anser kommer att vara bortglömda om 50år. Skarpa spaningar, omotiverarade rants och go stämning utlovas! Varje söndag 17-18.",
+      "category": "nöje \u0026 kultur"
+   },
+   "frukostpatrullen": {
+      "name": "Frukostpatrullen",
+      "rss": "http://www.radioaf.se/program/frukostpatrullen/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/03/Frukostpatrullen-Utkast-Programbild-Nya-Hemsidan.png\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Frukostpatrullen står upp för de svagas rätt bland knäckebröd och filmjölk. Dina hjältar heter Magdalena \u0026 Mattias. Varje tisdag möter du denna dynamiska duo som kastar sig ut i aktuella, icke-aktuella, fräscha och ofräscha ämnen i en härlig och halsbrytande mix.",
+      "category": "nöje \u0026 kultur"
+   },
+   "granskningsrevisionen": {
+      "name": "Granskningsrevisionen",
+      "rss": "http://www.radioaf.se/program/granskning/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/Granskningsrevisionen-fejs.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Granskningsrevisionen verkar för ett öppet och transparent samhällsklimat. Genom kontinuerliga spaningar av profiler och aktualiteter på lokal såväl som regional nivå kan du vara säker på att vi hjälper dig att se klart i den så ofta grumliga samhällsdebatten. – Vi bringar sanningen till ytan och ytan till sanningen; makten till folket och folket till månen.",
+      "category": "nöje \u0026 kultur"
+   },
+   "gronkult": {
+      "name": "Grönkult",
+      "rss": "http://www.radioaf.se/program/gronkult/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/02/gk2.png\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Ett skönt program med mat, häng och mys! Grön matlagning, tips och tricks, allt detta hittar du på Grönkult! Varje avsnitt har nytt tema och ny gäst, slå på högtalarna och kliv ut i köket, nu kör vi!",
+      "category": "nöje \u0026 kultur"
+   },
+   "hartsnack": {
+      "name": "Hårt snack",
+      "rss": "http://www.radioaf.se/program/hartsnack/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/final.jpeg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Ett mysigt och ganska hårt intervjuprogram med det bittra högerspöket Jonatan och den sentimentala vänsterideologen Robin. Varannan söndag klockan 20.00 ställer vi de frågor som vi – och Du – vill ha svar på till människor med makt. Premiäravsnittet sänds söndagen den 8 februari 2015, och programmet läggs upp som podd efter programmet. Kanalen är självklart Radio AF – Din studentradio!",
+      "category": "samhälle"
+   },
+   "helsingkronanation": {
+      "name": "Helsingkrona Radio",
+      "rss": "http://www.radioaf.se/program/helsingkronanation/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/03/image-1.jpeg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Välkommen till Helsingkrona Radio med senaste nytt från Lunds nordöstra nationsliv! Här dammsuger programledarna Klara och Olof  klubbdirektörer, pubförmän och spexregissörer för att göra ditt studentliv med Helsingkrona Nation ännu bättre!",
+      "category": "studentliv"
+   },
+   "iluven": {
+      "name": "I Luvén",
+      "rss": "http://www.radioaf.se/program/iluven/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/09/I-Luv%C3%A9n-programbild.png\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "",
+      "category": "nöje \u0026 kultur"
+   },
+   "johanochjohanna": {
+      "name": "Klockan nio med Johan \u0026 Johanna",
+      "rss": "http://www.radioaf.se/program/johanochjohanna/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/03/Johan-Johanna.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Vi gör vårt yttersta för att ge dig en trevlig måndagsmorgon trots att den ofta uppfattas som veckans sämsta tidpunkt. Genom prat och trams försöker vi förstå och förklara vad som pågår i världen. Allt från stora nyheter till veckans babe. God morgon!",
+      "category": "nöje \u0026 kultur"
+   },
+   "kavalleriet": {
+      "name": "Kavalleriet",
+      "rss": "http://www.radioaf.se/program/kavalleriet/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/04/11090393_10155290309775136_231146515_o.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Kavalleriet är eftermiddagsshowen som tar vardagsfenomen på allvar. I egenskap att vara människa tar vi vårt ansvar att försöka finna mening och förklaring i saker som vi observerar i vår omgivning. Ingen sak är för liten och inga ord är för stora; med sociologiska glasögon diskuterar vi sociala företeelser som vi funderat lite extra över. Dessutom tipsar Kavalleriet om roliga saker man kan hitta på i Öresundsregionen och intervjuar personer vi tycker är intressanta!",
+      "category": "nöje \u0026 kultur"
+   },
+   "kexandthecity": {
+      "name": "Kex and the city",
+      "rss": "http://www.radioaf.se/program/kexandthecity/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/09/Kex-and-the-city-text-r%C3%A4tt.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Kex and the city guidar dig genom livets frågor, stora som små! Varje vecka tar vi hjälp av vår manliga gäst som ger oss nya perspektiv på världen.",
+      "category": "nöje \u0026 kultur"
+   },
+   "klagomuren": {
+      "name": "Klagomuren",
+      "rss": "http://www.radioaf.se/program/klagomuren/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/klagomuren.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Klag, klag och idel klag. I Klagomuren möts Lunds värsta cyniker och skäller ut varandra efter noter. Men kanske framför allt alla andra kokosnötter i världen. Lyssna på oss som podcast! Skicka gärna in klag – på oss, eller på annat! Adress: Radio AF @ AF Borgen, 227 00 Lund Skriv 'KLAGOMUREN' någonstans på vykortet som troligen har en bild på en mur på ena sidan. Kanske den kinesiska. Eller Klagomuren i Jerusalem. Om du är stora-journalistpristagerskan Malou von Sivers, skicka gärna en broccoli – du vet vad vi menar!",
+      "category": "humor"
+   },
+   "knullespondent": {
+      "name": "Knullespondenterna",
+      "rss": "http://www.radioaf.se/program/knullespondent/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/bullfitta.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Den sexuella revolutionen är här(!?) Ett program om att ligga, nuppa, knulla och pippa. Och att vara eller att icke vara en tvåsamhet.",
+      "category": "samhälle"
+   },
+   "kremlfraiche": {
+      "name": "Kreml fraiche",
+      "rss": "http://www.radioaf.se/program/kremlfraiche/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/09/kreml.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Kreml Fraiche är programmet där du får veta vad som är sant och vad som är falskt. Varje vecka presenteras två häpnadsväckande historier som vår samtid av någon anledning har glömt bort. MEN också två historier som är helt påhittade. Det är sedan Kreml Fraiche:isarnas uppgift att gissa vilka av historierna som är sanna och vilka som är falska. Lyssna på programmet med dem du älskar och försök att tillsammans klura ut vad som är på låtsas och vad som är på riktigt. För Kreml är livet enkelt: vi sänder varje tisdag klockan 18.00. Sedan slutar vi.",
+      "category": "samhälle"
+   },
+   "kulturgarningen": {
+      "name": "Kulturgärningen",
+      "rss": "http://www.radioaf.se/program/kulturgarningen/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/kulturgarningen.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "",
+      "category": "nöje \u0026 kultur"
+   },
+   "lunds": {
+      "name": "Radio Lunds",
+      "rss": "http://www.radioaf.se/program/lunds/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/04/lund.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Välkommen till Lunds nation! Radio Lunds med Axel Rydén i  spetsen är din lots genom den skärgård som utgör Lunds största studentnation – myllrande av aktiviteter!",
+      "category": "studentliv"
+   },
+   "maggan": {
+      "name": "Magasinet",
+      "rss": "http://www.radioaf.se/program/maggan/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/03/Magasinethm1.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Magasinet är aktualitetsprogrammet som sätter lyssnaren i centrum. Vi granskar samtiden på bredden och djupet, ibland globalt men med stadig förankring i Lund och studentlivet. Har du upptäckt ett missförhållande som borde uppmärksammas? Vi vill ha din berättelse! Mejla Magasinet@radioaf.se",
+      "category": "samhälle"
+   },
+   "mediemyndigheten": {
+      "name": "Mediemyndigheten",
+      "rss": "http://www.radioaf.se/program/mediemyndigheten/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/09/10559805_10152325706281089_8227444199063459409_n.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Media granskar samhället. Men vem granskar media? Det gör Mediemyndigheten",
+      "category": "samhälle"
+   },
+   "minvanberattar": {
+      "name": "Min vän berättar",
+      "rss": "http://www.radioaf.se/program/minvanberattar/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/09/Bild-Min-v%C3%A4n-ber%C3%A4ttar.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Min vän berättar sänder berättelser, idéer och tankar från alla världens hörn.",
+      "category": "samhälle"
+   },
+   "nybryggt": {
+      "name": "Nybryggt",
+      "rss": "http://www.radioaf.se/program/nybryggt/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/Nybryggt-logga-med-fl%C3%A4ck-01.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Nybryggt ger dig en härlig känsla att starta fredagen på! Vi går lättsamt och lätt skruvat igenom veckans nyheter och aktuella ämnen med hög variation. Det bjuds på fredagsgäster, personliga anekdoter och som alltid på Radio AF – superbra musik! Lyssna varje fredag mellan 08.00-10.00.",
+      "category": "nöje \u0026 kultur"
+   },
+   "nyheter": {
+      "name": "Nyheter med akademisk kvart",
+      "rss": "http://www.radioaf.se/program/nyheter/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/05/Nyheterna-logga2.png\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Nyheter med akademisk kvart är Radio AF:s egna nyheter. Nyhetssändningarna görs av nyhetsredaktionen och sänds 06:15-16:15 varje vardag. Vi täcker veckans viktigaste nyheter med fokus på studenters och ungas situation i Lund och Malmö. Har du nyhetstips? Maila oss på nyheter@radioaf.se!",
+      "category": "nyheter"
+   },
+   "orakadeorakel": {
+      "name": "Orakade orakel",
+      "rss": "http://www.radioaf.se/program/orakadeorakel/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/Orakade-orakel.png\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "",
+      "category": "nöje \u0026 kultur"
+   },
+   "ordgasm": {
+      "name": "Ordgasm",
+      "rss": "http://www.radioaf.se/program/ordgasm/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/09/ordgasmbild2.png\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Ordgasm är ditt vokabulära klimax i ätern.",
+      "category": "nöje \u0026 kultur"
+   },
+   "p6": {
+      "name": "P6",
+      "rss": "http://www.radioaf.se/program/p6/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/10/P6-Programbild-motljus.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Du vet väl att Projekt Sex sänder Studentlunds sexigaste radioprogram? Radio P6 är programmet där vi utför kondomsmaktest, diskuterar sexualpolitik, kritiserar normer och ger dig de bästa sextipsen! Detta vill du inte missa, så skriv in Radio P6 kl 17:00-18:00 varje udda torsdag, i din kalender. Projekt Sex är en av AF erkänd studentförening som arbetar med sexual- och relationsfrågor samt med att inspirera studenter till att ha säkrare sex.",
+      "category": "samhälle"
+   },
+   "pilotprogram": {
+      "name": "Pilotprogram",
+      "rss": "http://www.radioaf.se/program/pilotprogram/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/02/linaasp.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Radio AF:s pilotprogram bjuder på det bästa från din studentradios allra färskaste radioprofiler!  Upptäck dina nya favoritprogramledare och röster inom såväl musik som humor och samhällsbevakning. Och kom ihåg var du hörde det först!",
+      "category": "pilot"
+   },
+   "pkot": {
+      "name": "PKot med Jessica och Anna",
+      "rss": "http://www.radioaf.se/program/pkot/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/02/PKot-header1.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "PKot med Jessica \u0026 Anna är programmet som ger dig den absolut härligaste blandningen av politik och kultur. Längtar du efter att få en tankeväckande och rolig uppdatering angående det mesta om de flesta? Då är detta programmet för dig!  Kom ihåg, politik är allt – allt är politik. Peace.",
+      "category": "samhälle"
+   },
+   "radio-ordkonst": {
+      "name": "Ordkonst",
+      "rss": "http://www.radioaf.se/program/radio-ordkonst/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/12/10413291_740608772692692_7585956979202152178_n.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Radio Ordkonst ger dig: uppläsningar, poem, kulturella samtal och en inblick i studenternas egna litteraturtidskrift. Bidra gärna med en dikt, en text eller förslag. Jämna veckor: Torsdag: 22:00 www.ordkonst.nu",
+      "category": "nöje \u0026 kultur"
+   },
+   "radio60": {
+      "name": "Radio 60",
+      "rss": "http://www.radioaf.se/program/radio60/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/09/Radio-60-2.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Correspondent:Amir weekly Persian radio show, concerning about Iranian/Swedish ,  whom they are living,studying and working in Sweden also other Iranian student in Scandinavian countries . Items: Hot Mic (Interview with  Iranian artist,writer,actress ,poet and…),Kan2kav(scientific topics ) ,Green turtle(Environmental problems in Iran ),Papiion(Concert,Teater ,classic music),Sport 60  و Cafe 60(audio short story ).",
+      "category": "samhälle"
+   },
+   "sfinxen": {
+      "name": "Universitetsradion Sfinxen",
+      "rss": "http://www.radioaf.se/program/sfinxen/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/03/250px-Lunds_universitetsbyggnad_sfinxer.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Till Universitetsradion Sfinxen kommer representanter från Lunds universitets olika instanser. Återkommande gäst är universitetets rektor, på besök i din studentradio för att svara på dina frågor om din utbildningstid!",
+      "category": "studentliv"
+   },
+   "snabelo": {
+      "name": "SNABELÖ",
+      "rss": "http://www.radioaf.se/program/snabelo/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/snabelo.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Vi sänder udda fredagar 17.00!",
+      "category": "nöje \u0026 kultur"
+   },
+   "studentombudet": {
+      "name": "Studentombudets podd",
+      "rss": "http://www.radioaf.se/program/studentombudet/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/04/test32.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Studentombudets podd ska hjälpa och vägleda dig som student i dina rättigheter och skyldigheter vid Lunds universitet. Följ Studentombudet, Petra Holst när hon möter företrädare från kårerna för att diskutera och uppmärksamma ärenden som kan förekomma under studietiden och hur de kan hanteras. Vi hoppas på att spräcka myter men också reda ut hur du som student kan gå tillväga. Studentombudet handleder och bistår kårerna i deras arbete med studentärenden. Det kan handla om bristfällig eller dålig information om kurser, frågor gällande examinationerna, frågor rörande handledarskapet och anklagelser om fusk eller plagiering. Även frågor gällande diskriminering och arbetsmiljö – såväl den fysiska som den psykosociala – stöds studenter i. Det är alltid bra att vända sig till sin kår i första hand när du har stött på ett studierelaterat problem. Detta då de har ett nära samarbete och goda kontakter på både institutions- och fakultetsnivå. Kontakta din kår för frågor och funderingar på: http://studentombudet.se/karer/ Du kan även gilla studentombudet på facebook, där kan du följa uppdateringar om studenters rättigheter och skyldigheter: https://www.facebook.com/studentombudet.lus",
+      "category": "studentliv"
+   },
+   "ugglor": {
+      "name": "Ugglor i mossen",
+      "rss": "http://www.radioaf.se/program/ugglor/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2015/01/ugglor.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "",
+      "category": "samhälle"
+   },
+   "upf": {
+      "name": "Radio UPF",
+      "rss": "http://www.radioaf.se/program/upf/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/10/UPF80.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Radio UPF är en del av Utrikespolitiska Föreningen i Lund. Redaktionen, som har flest resetimmar i bagaget, levererar reportage från hela världen för att informera och skapa debatt kring olika internationella frågor. Radio UPF is a part of UPF Lund. The editorial staff delivers thematic programs each week from across the world to inform and spark debates about international issues. Vi sänder program varje onsdag kl. 17 på www.radioaf.se We broadcast every Wednesday at 17:00 on www.radioaf.se",
+      "category": "samhälle"
+   },
+   "vinnaren": {
+      "name": "Och vinnaren är",
+      "rss": "http://www.radioaf.se/program/vinnaren/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/03/IMG_8895.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Programmet som analyserar, diskuterar och framför allt prisar den gångna veckan!",
+      "category": "nöje \u0026 kultur"
+   },
+   "www": {
+      "name": "www",
+      "rss": "http://www.radioaf.se/program/www/feed/?post_type=podcasts",
+      "image": "http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb.php?src=/wp-content/uploads/2014/03/wwwfinal.jpg\u0026w=950\u0026h=670\u0026q=100\u0026zc=1",
+      "description": "Är programmet för dig som gillar populärkultur och internet, gärna i kombination.",
+      "category": "nöje \u0026 kultur"
+   }
+}
