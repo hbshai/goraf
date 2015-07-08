@@ -8,6 +8,22 @@ body {
     margin-bottom: 30px;
 }
 
+.bg {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    z-index: -1;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url(../img/misty_mountain.png);
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    background-size: 100vw 100vh;
+}
+
 iframe {
     position: fixed;
     bottom: 0px;
@@ -46,7 +62,8 @@ header > span {
 #btn-add {
     flex-grow: 0;
 }
-#btn-add {
+#btn-add,
+.program-header > button:last-child {
     margin-right: 0;
 }
 
@@ -87,6 +104,9 @@ input[type="submit"]:hover  {
     padding: 0.25em;
     margin: 0;
 
+    border-radius: 4px;
+    margin-right: 0.25em;
+
     flex-grow: 1;
     transition: background-color 0.2s ease;
 }
@@ -104,10 +124,18 @@ input[type="submit"]:hover  {
     background-color: #6AB481;
 }
 
+label {
+    padding: 0.25em;
+}
+
 .program-container {
     display: flex;
     flex-direction: column;
+    
     max-height: 0;
+    margin-top: 0.25em;
+    border-radius: 4px;
+
     overflow: hidden;
     background-color: #D4E7F4;
     transition: max-height 0.25s ease-out;
