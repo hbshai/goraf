@@ -117,14 +117,17 @@ func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
 	if accessProtected(r) {
 		// The client expects the number of seconds left until session timeout.
 		dur := fmt.Sprintf("%d", int((protectionTime - time.Since(lastAccess)).Seconds()))
-		return &appError{errors.New("Conflicting access"), dur, 400}
+		return &appError{errors.New("Conflicting access"), dur, http.StatusConflict}
 	}
 	giveAccess(r)
 
 	if r.Method == "GET" {
 		data, err := ioutil.ReadFile(*filePath)
 		if err != nil {
-			return &appError{err, "Coudln't find/read the programs.json file :(", 500}
+			return &appError{
+				err,
+				"Error: Coudln't find/read the programs.json file :(",
+				http.StatusInternalServerError}
 		}
 
 		w.Write(data)
@@ -133,7 +136,9 @@ func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
 
 	if r.Method == "POST" {
 		if err := r.ParseForm(); err != nil {
-			return &appError{err, "Error: Couldn't parse form data, check log and contact the IT monkey", 400}
+			return &appError{err,
+				"Error: Couldn't parse form data, contact the IT monkey",
+				http.StatusBadRequest}
 		}
 
 		// Everything is posted as arrays...
@@ -143,7 +148,7 @@ func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
 		images := r.Form["programs[][image]"]
 		categories := r.Form["programs[][category]"]
 		descriptions := r.Form["programs[][description]"]
-		
+
 		// So generate the JSON-like object
 		programs := make(map[string]Program)
 		for i := 0; i < len(keys); i++ {
@@ -159,20 +164,24 @@ func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
 		// And then output nicely formatted JSON
 		data, err := json.MarshalIndent(programs, "", "   ")
 		if err != nil {
-			return &appError{err, "Error: Couldn't convert data to json, check log and contact IT turtle", 500}
+			return &appError{err,
+				"Error: Couldn't convert data to json, contact IT turtle",
+				http.StatusInternalServerError}
 		}
-		
+
 		// Try to make a backup for safety purposes, but don't enforce it
 		backupErr := makeBackup()
 		if backupErr != nil {
 			log.Printf("%s: %v\n", backupErr.Message, backupErr.Error)
 		}
-		
+
 		// We don't need executable rights, just read-write
 		if err = ioutil.WriteFile(*filePath, data, 0644); err != nil {
-			return &appError{err, "Couldn't write to programs.json, perhaps some premission error?", 500}
+			return &appError{err,
+				"Error: Couldn't write to programs.json, contact IT shibe",
+				http.StatusInternalServerError}
 		}
-		
+
 		log.Printf("Wrote %d bytes\n", len(data))
 		if backupErr == nil {
 			fmt.Fprintf(w, "Success: %d programs saved (~%d kB)", len(programs), len(data)/1000)
@@ -186,7 +195,7 @@ func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
 
 func main() {
 	flag.Parse()
-	
+
 	if _, err := os.Stat(*filePath); os.IsNotExist(err) {
 		log.Fatalln("Coudln't find json file in " + *filePath)
 	}
