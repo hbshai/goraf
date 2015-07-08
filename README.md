@@ -4,8 +4,8 @@ usage
 -----
 assuming you have Go set up
 
- - go build -o program-server
- - program-server
+ - go install
+ - goraf
  - browse to localhost:8000
 
 specifics
