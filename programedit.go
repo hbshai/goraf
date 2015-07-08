@@ -158,7 +158,6 @@ func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
 
 func main() {
 	flag.Parse()
-	mux := http.NewServeMux()
 
 	if _, err := os.Stat(*filePath); os.IsNotExist(err) {
 		log.Fatalln("Coudln't find json file in " + *filePath)
@@ -179,10 +178,10 @@ func main() {
 	log.Printf("Session timeout is %v\n", protectionTime)
 
 	fs := http.FileServer(http.Dir("./public"))
-	mux.Handle("/", http.StripPrefix("/", fs))
+	http.Handle("/", http.StripPrefix("/", fs))
 
-	mux.Handle("/programs", appHandler(handlePrograms))
+	http.Handle("/programs", appHandler(handlePrograms))
 
 	log.Printf("Running http server on address %s\n", *serverPort)
-	http.ListenAndServe(*serverPort, mux)
+	http.ListenAndServe(*serverPort, nil)
 }
