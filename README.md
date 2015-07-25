@@ -9,6 +9,10 @@ assuming you have Go set up
  - `$GOPATH/bin/goraf`
  - browse to localhost:8000
 
+alternatively, you can get up-to-date builds from [gobuilder](https://gobuilder.me/github.com/hbshai/goraf).
+
+we also tag and build release versions, found [here](https://github.com/hbshai/goraf/releases).
+
 specifics
 ---------
 This is a http server that serves a html site and allows users to edit a json file.
