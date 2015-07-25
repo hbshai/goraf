@@ -208,7 +208,7 @@ func main() {
 	flag.Parse()
 
 	if _, err := os.Stat(*filePath); os.IsNotExist(err) {
-		log.Fatalln("Coudln't find json file in " + *filePath)
+		log.Fatalln("Couldn't find json file in " + *filePath)
 	}
 	log.Println("Program file path is " + *filePath)
 
@@ -224,7 +224,7 @@ func main() {
 	var err error
 	protectionTime, err = time.ParseDuration(*sessionTimeout)
 	if err != nil {
-		log.Printf("Failed to parse session time, falling back...%v\n", err)
+		log.Printf("Failed to parse session time, falling back to: %v\n", err)
 		protectionTime = 5 * time.Minute
 	}
 
