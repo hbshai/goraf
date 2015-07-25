@@ -93,15 +93,13 @@
             // Animate using max height. Should be set to something
             // larger than container will ever be, but not too large
             // because the animation will animate over all pixels
-            if (cont.style.maxHeight === '500px') {
-                cont.style.maxHeight = 0
-                cont.style.transition = ''
+            if (cont.classList.contains('expanded')) {
+                cont.classList.remove('expanded')
+                btnEdit.classList.remove('expanded')
             } else {
-                cont.style.maxHeight = '500px'
-                cont.style.transition = 'max-height 0.2s ease-in'
+                cont.classList.add('expanded')
+                btnEdit.classList.add('expanded')
             }
-
-            var dont = cont.clientHeight
         }
 
         btnDel.textContent = 'delete'

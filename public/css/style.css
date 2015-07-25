@@ -67,7 +67,6 @@ header > span {
     margin-right: 0;
 }
 
-
 button,
 input[type="submit"] {
     background: #FFF;
@@ -85,6 +84,10 @@ input[type="submit"]:hover  {
     background-color: #375EAB;
     color: white;
     cursor: pointer;
+}
+
+button.expanded {
+    background-color: #6AB481;
 }
 
 .program {
@@ -175,4 +178,10 @@ textarea {
 .program-container > textarea:focus,
 .program-header > input:focus {
     background-color: #faffbd;
+}
+
+.program-container.expanded {
+    max-height: 500px;
+    transition: 'max-height 0.2s ease-in';
+    margin-bottom: 0.25em;
 }
