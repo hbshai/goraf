@@ -4,8 +4,9 @@ usage
 -----
 assuming you have Go set up
 
- - go install
- - goraf
+ - `go get github.com/hbshai/goraf`
+ - `go install github.com/hbshai/goraf`
+ - `$GOPATH/bin/goraf`
  - browse to localhost:8000
 
 specifics
