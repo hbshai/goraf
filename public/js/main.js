@@ -86,7 +86,7 @@
             btnDel = document.createElement('button')
 
         btnEdit.textContent = 'edit'
-        btnEdit.onclick = function () {
+        btnEdit.onclick = function (event) {
             // Because button is inside form we must prevent submit
             event.preventDefault()
 
@@ -103,7 +103,7 @@
         }
 
         btnDel.textContent = 'delete'
-        btnDel.onclick = function() {
+        btnDel.onclick = function(event) {
             // Because button is inside form we must prevent submit
             event.preventDefault()
 
