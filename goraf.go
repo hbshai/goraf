@@ -24,6 +24,11 @@ var (
 	protectionTime     = time.Second * 20
 )
 
+var (
+	ErrAccessConflict = errors.New("Conflicting access")
+	ErrDuplicateProgramKeys = errors.New("Duplicate program keys")
+)
+
 /**
  * Allow http handlers to return errors directly, instead of:
  * 	log(err)
@@ -117,7 +122,7 @@ func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
 	if accessProtected(r) {
 		// The client expects the number of seconds left until session timeout.
 		dur := fmt.Sprintf("%d", int((protectionTime - time.Since(lastAccess)).Seconds()))
-		return &appError{errors.New("Conflicting access"), dur, http.StatusConflict}
+		return &appError{ErrAccessConflict, dur, http.StatusConflict}
 	}
 	giveAccess(r)
 
@@ -152,6 +157,12 @@ func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
 		// So generate the JSON-like object
 		programs := make(map[string]Program)
 		for i := 0; i < len(keys); i++ {
+			if _, ok := programs[keys[i]]; ok {
+				return &appError{ErrDuplicateProgramKeys,
+					fmt.Sprintf("Error: program key '%s' already exists (check for duplicates)", keys[i]),
+					http.StatusBadRequest}
+			}
+
 			programs[keys[i]] = Program{
 				Name:        names[i],
 				RSS:         rss[i],
