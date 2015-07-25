@@ -197,9 +197,11 @@
         var parent = document.getElementById('programs'),
             first = parent.childNodes[2],
             boiler = generateProgram('FIXME: program key', {
-                name : 'FIXME: program name',
-                rss : 'FIXME: program rss link',
-                image : 'FIXME: program image link'
+                name        : 'FIXME: program name',
+                rss         : 'FIXME: program rss link',
+                image       : 'FIXME: program image link',
+                description : 'FIXME: program description',
+                category    : 'FIXME: program category'
             })
         parent.insertBefore(boiler, first)
     }
