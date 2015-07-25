@@ -1,0 +1,4 @@
+artifacts:
+    - public/
+    - programs.json
+readme_file: README.md
