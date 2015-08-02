@@ -35,7 +35,7 @@ var (
 )
 
 var (
-	infoLog *log.Logger
+	infoLog  *log.Logger
 	errorLog *log.Logger
 )
 
@@ -92,7 +92,7 @@ func accessProtected(r *http.Request) bool {
 	if err != nil {
 		return true
 	}
-	
+
 	// We are the active user
 	if ip := net.ParseIP(host); ip.Equal(lastSessionAddress) {
 		return false
@@ -102,7 +102,7 @@ func accessProtected(r *http.Request) bool {
 }
 func giveAccess(r *http.Request) {
 	host, _, _ := net.SplitHostPort(r.RemoteAddr)
-	
+
 	lastSessionAddress = net.ParseIP(host)
 	lastAccess = time.Now()
 }
@@ -143,7 +143,7 @@ func makeBackup() *appError {
 
 // Handles GET and POST requests to /programs. Enforces session access.
 func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
-	
+
 	// Use lock to prevent race conditions from multiple goroutines (1/http request)
 	accessLock.Lock()
 	if accessProtected(r) {
@@ -253,7 +253,7 @@ func main() {
 	infoLog = log.New(os.Stdout, "INFO: ", log.Ldate|log.Ltime)
 	errorLog = log.New(os.Stderr, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
 
-	// Check if program.json file exists, to prevent read errors later on 
+	// Check if program.json file exists, to prevent read errors later on
 	if _, err := os.Stat(*filePath); os.IsNotExist(err) {
 		errorLog.Fatalln("Couldn't find json file in " + *filePath)
 	}

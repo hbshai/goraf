@@ -5,8 +5,9 @@ usage
 assuming you have Go set up
 
  - `go get github.com/hbshai/goraf`
- - `go install github.com/hbshai/goraf`
- - `$GOPATH/bin/goraf`
+ - `cd $GOPATH/src/github.com/hbshai/goraf`
+ - `go build`
+ - `./goraf`
  - browse to localhost:8000
 
 alternatively, you can get up-to-date builds from [gobuilder](https://gobuilder.me/github.com/hbshai/goraf).
