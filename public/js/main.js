@@ -16,7 +16,7 @@
         // +1 for good measure
         var time = parseInt(txt) + 1
 
-        sweetAlert("Edit Conflict", formatError(time), "error");
+        sweetAlert("Edit Conflict", formatError(time), "error")
         setTimeout(function countdown() {
             var el = document.querySelector(".sweet-alert > p")
             el.textContent = formatError(--time)
@@ -27,21 +27,30 @@
         }, 1000)
     }
 
-    // Classic XHR to get programs.json
-    function fetchPrograms (callb) {
+    function ajax(url, callb){
         var xhr = new XMLHttpRequest()
 
-        xhr.open('GET', '/programs')
+        // Because IE doesn't understand no-cache headers, append time so url looks different
+        var nocache = '?nocache=' + Date.now()
 
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                if (xhr.status !== 200)
-                    return displayError(xhr.responseText)
-
-                callb(JSON.parse(xhr.responseText))
-            }
+        xhr.open('GET', url + nocache)
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4)
+                callb(xhr.status, xhr.responseText)
         }
         xhr.send()
+    }
+
+    // Classic XHR to get programs.json
+    function fetchPrograms (callb) {
+        ajax('/programs', function (programStatus, txt) {
+            if (programStatus !== 200) {
+                swal("Error", "Couldn't fetch program.json data from server.", "error")
+                return
+            }
+          
+            callb(JSON.parse(txt))
+        })
     }
 
     // Shorthand to make the input elements
@@ -207,7 +216,16 @@
     }
 
     window.onload = function () {
-        fetchPrograms(generatePrograms)
+        // First check for access
+        ajax('/access', function (accessStatus, durTxt) {
+            if (accessStatus !== 200) {
+                displayError(durTxt)
+                return
+            }
+            
+            // Then, if possible, get programs
+            fetchPrograms(generatePrograms)
+        })
 
         var res = document.querySelector('iframe')
         res.onload = function(){

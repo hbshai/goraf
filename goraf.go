@@ -8,25 +8,35 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
+	"net"
 	"net/http"
 	"os"
+	"sync"
 	"time"
 )
 
 var (
-	serverPort     = flag.String("addr", "127.0.0.1:8000", "server address (host:port)")
+	serverAddr     = flag.String("addr", "127.0.0.1:8000", "server address (host:port)")
 	backupDirPath  = flag.String("backup", "./backup", "path to backup directory")
 	filePath       = flag.String("file", "./programs.json", "path to programs.json")
 	sessionTimeout = flag.String("timeout", "5m", "session timeout, i.e 3s, 5m10s, etc..")
+)
 
+var (
+	accessLock         = sync.Mutex{}
 	lastAccess         = time.Now()
-	lastSessionAddress = "no one"
+	lastSessionAddress = net.IPv4(0, 0, 0, 0)
 	protectionTime     = time.Second * 20
 )
 
 var (
-	ErrAccessConflict = errors.New("Conflicting access")
+	ErrAccessConflict       = errors.New("Conflicting access")
 	ErrDuplicateProgramKeys = errors.New("Duplicate program keys")
+)
+
+var (
+	infoLog *log.Logger
+	errorLog *log.Logger
 )
 
 /**
@@ -43,6 +53,10 @@ type appError struct {
 	Code    int
 }
 
+func logRequest(r *http.Request, code int) {
+	infoLog.Printf("%s %s %d (%s)\n", r.Method, r.URL.Path, code, r.RemoteAddr)
+}
+
 // The actual handler to use above struct
 type appHandler func(http.ResponseWriter, *http.Request) *appError
 
@@ -50,9 +64,12 @@ type appHandler func(http.ResponseWriter, *http.Request) *appError
 func (fn appHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// ...here!
 	if err := fn(w, r); err != nil {
-		log.Printf("%s: %v\n", err.Message, err.Error)
+		logRequest(r, err.Code)
+		errorLog.Printf("%v: %s\n", err.Error, err.Message)
 		http.Error(w, err.Message, err.Code)
+		return
 	}
+	logRequest(r, 200)
 }
 
 // Convert POST data to Program. Convert Program to JSON.
@@ -71,15 +88,22 @@ type Program struct {
  * a remote machine requests access.
  */
 func accessProtected(r *http.Request) bool {
+	host, _, err := net.SplitHostPort(r.RemoteAddr)
+	if err != nil {
+		return true
+	}
+	
 	// We are the active user
-	if r.RemoteAddr == lastSessionAddress {
+	if ip := net.ParseIP(host); ip.Equal(lastSessionAddress) {
 		return false
 	}
 
 	return time.Since(lastAccess) < protectionTime
 }
 func giveAccess(r *http.Request) {
-	lastSessionAddress = r.RemoteAddr
+	host, _, _ := net.SplitHostPort(r.RemoteAddr)
+	
+	lastSessionAddress = net.ParseIP(host)
 	lastAccess = time.Now()
 }
 
@@ -119,12 +143,16 @@ func makeBackup() *appError {
 
 // Handles GET and POST requests to /programs. Enforces session access.
 func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
+	
+	// Use lock to prevent race conditions from multiple goroutines (1/http request)
+	accessLock.Lock()
 	if accessProtected(r) {
-		// The client expects the number of seconds left until session timeout.
-		dur := fmt.Sprintf("%d", int((protectionTime - time.Since(lastAccess)).Seconds()))
-		return &appError{ErrAccessConflict, dur, http.StatusConflict}
+		accessLock.Unlock()
+
+		return &appError{ErrAccessConflict, "there already exists an active session", http.StatusConflict}
 	}
 	giveAccess(r)
+	accessLock.Unlock()
 
 	if r.Method == "GET" {
 		data, err := ioutil.ReadFile(*filePath)
@@ -183,7 +211,7 @@ func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
 		// Try to make a backup for safety purposes, but don't enforce it
 		backupErr := makeBackup()
 		if backupErr != nil {
-			log.Printf("%s: %v\n", backupErr.Message, backupErr.Error)
+			errorLog.Printf("%s: %v\n", backupErr.Message, backupErr.Error)
 		}
 
 		// We don't need executable rights, just read-write
@@ -193,7 +221,7 @@ func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
 				http.StatusInternalServerError}
 		}
 
-		log.Printf("Wrote %d bytes\n", len(data))
+		infoLog.Printf("Wrote %d bytes\n", len(data))
 		if backupErr == nil {
 			fmt.Fprintf(w, "Success: %d programs saved (~%d kB)", len(programs), len(data)/1000)
 		} else {
@@ -204,40 +232,61 @@ func handlePrograms(w http.ResponseWriter, r *http.Request) *appError {
 	return nil
 }
 
+// Probe current session status
+func handleAccess(w http.ResponseWriter, r *http.Request) *appError {
+	accessLock.Lock()
+	if accessProtected(r) {
+		accessLock.Unlock()
+
+		// The client expects the number of seconds left until session timeout.
+		dur := fmt.Sprintf("%d", int((protectionTime - time.Since(lastAccess)).Seconds()))
+		return &appError{ErrAccessConflict, dur, http.StatusConflict}
+	}
+	accessLock.Unlock()
+	fmt.Fprintf(w, "You can get access!")
+	return nil
+}
+
 func main() {
 	flag.Parse()
 
-	if _, err := os.Stat(*filePath); os.IsNotExist(err) {
-		log.Fatalln("Couldn't find json file in " + *filePath)
-	}
-	log.Println("Program file path is " + *filePath)
+	infoLog = log.New(os.Stdout, "INFO: ", log.Ldate|log.Ltime)
+	errorLog = log.New(os.Stderr, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
 
+	// Check if program.json file exists, to prevent read errors later on 
+	if _, err := os.Stat(*filePath); os.IsNotExist(err) {
+		errorLog.Fatalln("Couldn't find json file in " + *filePath)
+	}
+	infoLog.Println("Program file path is " + *filePath)
+
+	// Try to make sure that we habe a backup dir to store copies in
 	if _, err := os.Stat(*backupDirPath); os.IsNotExist(err) {
-		log.Println("Creating backup directory in " + *backupDirPath)
+		infoLog.Println("Creating backup directory in " + *backupDirPath)
 		if err := os.Mkdir(*backupDirPath, 0744); err != nil {
-			log.Printf("Couldn't create backup dir. Error: %v", err)
+			errorLog.Printf("Couldn't create backup dir. (%v)\n", err)
 		}
 	}
-	log.Println("Backup directory is " + *backupDirPath)
+	infoLog.Println("Backup directory is " + *backupDirPath)
 
 	// Do assignment so that we don't shadow the global...
 	var err error
 	protectionTime, err = time.ParseDuration(*sessionTimeout)
 	if err != nil {
-		log.Printf("Failed to parse session time, falling back to: %v\n", err)
+		errorLog.Printf("Failed to parse session time, falling back to: %v\n", err)
 		protectionTime = 5 * time.Minute
 	}
 
 	// Better trick than checking for "no one"
 	lastAccess = lastAccess.Add(-protectionTime)
-	log.Printf("Session timeout is %v\n", protectionTime)
+	infoLog.Printf("Session timeout is %v\n", protectionTime)
 
 	// Host files from public dir, but mount them on root (/) path instead
 	fs := http.FileServer(http.Dir("./public"))
-	http.Handle("/", http.StripPrefix("/", fs))
+	http.Handle("/", fs)
 
 	http.Handle("/programs", appHandler(handlePrograms))
+	http.Handle("/access", appHandler(handleAccess))
 
-	log.Printf("Running http server on address %s\n", *serverPort)
-	http.ListenAndServe(*serverPort, nil)
+	infoLog.Printf("Running http server on address %s\n", *serverAddr)
+	http.ListenAndServe(*serverAddr, nil)
 }
