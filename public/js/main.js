@@ -8,7 +8,8 @@
         else
             t = time + ' sec'
 
-        return "Another person recently changed something. To prevent overwriting each other's data please wait until he/she is done. If no additional changes are made you will gain access in " + t + "."
+        // return "Another person recently changed something. To prevent overwriting each other's data please wait until he/she is done. If no additional changes are made you will gain access in " + t + "."
+        return "En annan person har nyligen redigerat något på sidan. För att förhindra att ni skriver över varandras ändringar är det bäst att vänta tills hen är klar. Förutsatt att inga fler redigeringar äger rum så kommer du att få tillgång till sidan om " + t + "." 
 
     }
     
@@ -16,7 +17,7 @@
         // +1 for good measure
         var time = parseInt(txt) + 1
 
-        sweetAlert("Edit Conflict", formatError(time), "error")
+        sweetAlert("Redigeringskonflikt", formatError(time), "error");
         setTimeout(function countdown() {
             var el = document.querySelector(".sweet-alert > p")
             el.textContent = formatError(--time)
@@ -27,74 +28,68 @@
         }, 1000)
     }
 
-    function ajax(url, callb){
+    // Classic XHR to get programs.json
+    function fetchPrograms (callb) {
         var xhr = new XMLHttpRequest()
 
-        // Because IE doesn't understand no-cache headers, append time so url looks different
-        var nocache = '?nocache=' + Date.now()
+        xhr.open('GET', '/programs')
 
-        xhr.open('GET', url + nocache)
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4)
-                callb(xhr.status, xhr.responseText)
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status !== 200)
+                    return displayError(xhr.responseText)
+
+                callb(JSON.parse(xhr.responseText))
+            }
         }
         xhr.send()
     }
 
-    // Classic XHR to get programs.json
-    function fetchPrograms (callb) {
-        ajax('/programs', function (programStatus, txt) {
-            if (programStatus !== 200) {
-                swal("Error", "Couldn't fetch program.json data from server.", "error")
-                return
-            }
-          
-            callb(JSON.parse(txt))
-        })
-    }
-
     // Shorthand to make the input elements
-    function input(name) {
+    function input(name, placeholder) {
         var node = document.createElement('input')
         
         node.setAttribute('name', name)
+        node.setAttribute('placeholder', placeholder)
         node.setAttribute('autocomplete', 'off')
         node.setAttribute('type', 'text')
 
         return node
     }
-    function textarea(name) {
+    function textarea(name, placeholder) {
         var node = document.createElement('textarea')
         
         node.setAttribute('name', name)
+        node.setAttribute('placeholder', placeholder)
         node.setAttribute('autocomplete', 'off')
         node.setAttribute('form', 'programs')
 
         return node
     }
 
-    function label(name){
+    function label(name, altText) {
         var node = document.createElement('label')
         node.textContent = name
+        node.setAttribute("title", altText);
         return node
     }
 
     // Generate one program of the form:
     // key { name: "", rss : "", image : "", description : ""}
-    function generateProgram(key, program) {
+    function generateProgram(key, program, isExpanded) {
         var div = document.createElement('div'),
             row = document.createElement('div'),
             cont = document.createElement('div'),
-            programKey = input('programs[][key]'),
-            programName = input('programs[][name]'),
-            programRSS = input('programs[][rss]'),
-            programCategory = input('programs[][category]'),
-            programInfo = textarea('programs[][description]'),
-            programImg = input('programs[][image]'),
+            programKey = input('programs[][key]', "<program-id ifylles här>"),
+            programName = input('programs[][name]', "<programnamn här>"),
+            programRSS = input('programs[][rss]', "<RSS-länk här>"),
+            programCategory = input('programs[][category]', "<kategori här>"),
+            programInfo = textarea('programs[][description]', "<programbeskrivning här>"),
+            programImg = input('programs[][image]', "<länk till programbild här>"),
             btnEdit = document.createElement('button'),
             btnDel = document.createElement('button')
 
-        btnEdit.textContent = 'edit'
+        btnEdit.textContent = 'redigera'
         btnEdit.onclick = function (event) {
             // Because button is inside form we must prevent submit
             event.preventDefault()
@@ -111,23 +106,23 @@
             }
         }
 
-        btnDel.textContent = 'delete'
+        btnDel.textContent = 'ta bort'
         btnDel.onclick = function(event) {
             // Because button is inside form we must prevent submit
             event.preventDefault()
 
             sweetAlert({
-                title: "Are you sure?",
-                text: "You need to manually recover '" + key + "' once deleted.",
+                title: "Vill du ta bort programmet?",
+                text: "Du behöver skapa '" + key + "' på nytt efter att den tagits bort.",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, delete it!",
+                confirmButtonText: "Ja, ta bort programmet från appen!",
                 closeOnConfirm: false,
                 html: false
             }, function(){
-                swal("Deleted!",
-                    "Program was deleted for you. Click 'save' to update server as well. Refresh this web page if you misclicked.",
+                swal("Raderad!",
+                    "Programmet togs bort utan problem. Klicka på 'spara' för att uppdatera informationen på servern. Uppdatera (F5) denna sida om du tog bort programmet av misstag.",
                     "success");
                 div.parentNode.removeChild(div)
             });
@@ -140,21 +135,25 @@
         programCategory.value = program.category
         programInfo.value = program.description
         
-        cont.appendChild(label('Name:'))
+        cont.appendChild(label('Programnamn:', "T.ex på 'stan med bettan' eller '7 myror > X elefanter?'"))
         cont.appendChild(programName)
 
-        cont.appendChild(label('Category:'))
+        cont.appendChild(label('Kategori:', "T.ex. samhälle, nöje & kultur, studentliv eller humor"))
         cont.appendChild(programCategory)
 
-        cont.appendChild(label('Description:'))
+        cont.appendChild(label('Programbeskrivning:', "Beskrivning av programmet på svenska eller engelska"))
         cont.appendChild(programInfo)
 
-        cont.appendChild(label('RSS:'))
+        cont.appendChild(label('RSS-länk:', "Ser ut som http://www.radioaf.se/program/<PROGRAM-ID>/feed/?post_type=podcasts"))
         cont.appendChild(programRSS)
 
-        cont.appendChild(label('Image:'))
+        cont.appendChild(label('Programbildslänk:', "En enkel länk till programbilden, oftast på formatet http://www.radioaf.se/wp-content/themes/base/library/includes/timthumb....."))
         cont.appendChild(programImg)
         cont.classList.add('program-container')
+        if (isExpanded) {
+            cont.classList.add('expanded')
+            btnEdit.classList.add('expanded')
+        }
 
         row.appendChild(programKey)
         row.appendChild(btnEdit)
@@ -199,40 +198,33 @@
         white()
     }
 
-    function newProgram(event){
+    function newProgram(event, isExpanded){
         // Because button is inside form we must prevent submit
         event.preventDefault()
 
         var parent = document.getElementById('programs'),
             first = parent.childNodes[2],
-            boiler = generateProgram('FIXME: program key', {
-                name        : 'FIXME: program name',
-                rss         : 'FIXME: program rss link',
-                image       : 'FIXME: program image link',
-                description : 'FIXME: program description',
-                category    : 'FIXME: program category'
-            })
+            boiler = generateProgram('', {
+                name        : '',
+                rss         : '',
+                image       : '',
+                description : '',
+                category    : ''
+            }, isExpanded)
         parent.insertBefore(boiler, first)
     }
 
     window.onload = function () {
-        // First check for access
-        ajax('/access', function (accessStatus, durTxt) {
-            if (accessStatus !== 200) {
-                displayError(durTxt)
-                return
-            }
-            
-            // Then, if possible, get programs
-            fetchPrograms(generatePrograms)
-        })
+        fetchPrograms(generatePrograms)
 
         var res = document.querySelector('iframe')
         res.onload = function(){
             flashPostResults(res)
         }
 
-        document.getElementById('btn-add').onclick = newProgram
+        document.getElementById('btn-add').onclick = function(event) {
+            newProgram(event, true);
+        }
     }
 
 })();
