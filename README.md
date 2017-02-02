@@ -1,5 +1,5 @@
 A program editing server for Radio AF written in Go.
-![goraf ui](https://cloud.githubusercontent.com/assets/6011225/8889552/e812cbfa-32de-11e5-8c33-057c92a066a4.png)
+![goraf ui](https://cloud.githubusercontent.com/assets/6011225/22562758/30bb5fdc-e97e-11e6-89ad-997cf2af113b.png)
 usage
 -----
 assuming you have Go set up
